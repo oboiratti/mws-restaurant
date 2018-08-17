@@ -35,6 +35,9 @@ h1, h2, h3, h4, h5, h6 {
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+img {
+  max-width: 100%;
+}
 #maincontent {
   background-color: #f3f3f3;
   min-height: 100%;
@@ -60,6 +63,7 @@ nav {
 }
 nav h1 {
   margin: auto;
+  padding-top: 20px;
 }
 nav h1 a {
   color: #fff;
@@ -69,7 +73,7 @@ nav h1 a {
   text-transform: uppercase;
 }
 #breadcrumb {
-    padding: 10px 40px 16px;
+    padding: 16px 40px;
     list-style: none;
     background-color: #eee;
     font-size: 17px;
@@ -109,9 +113,11 @@ nav h1 a {
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
   width: 100%;
-  height: 50px;
+  height: 135px;
   background-color: #3397DB;
   align-items: center;
+  padding-top: 10px;
+  margin-top: 10px;
 }
 .filter-options h2 {
   color: white;
@@ -137,7 +143,7 @@ nav h1 a {
   background-color: #f3f3f3;
   list-style: outside none none;
   margin: 0;
-  padding: 30px 15px 60px;
+  padding: 0px 0px 70px;
   text-align: center;
 }
 #restaurants-list li {
@@ -153,10 +159,11 @@ nav h1 a {
 #restaurants-list .restaurant-img {
   background-color: #ccc;
   display: block;
-  margin: 0;
+  margin: 10px 0 0 0;
   max-width: 100%;
   min-height: 248px;
   min-width: 100%;
+  border-radius: 10px;
 }
 #restaurants-list li h1 {
   color: #f18200;
@@ -203,6 +210,11 @@ nav h1 a {
   right: 0;
   top: 80px; */
   width: 100%;
+}
+.index-map {
+  margin-top: 80px;
+}
+.restaurant-map {
   margin-top: 140px;
 }
 .inside #map {
@@ -215,19 +227,21 @@ nav h1 a {
   width: 100%;
   bottom: 0;
   right: 0;
+  z-index: 999;
 }
 #restaurant-name {
   color: #f18200;
   font-family: Arial,sans-serif;
-  font-size: 20pt;
+  font-size: 16pt;
   font-weight: 200;
   letter-spacing: 0;
-  margin: 15px 0 30px;
+  margin: 15px 0;
   text-transform: uppercase;
   line-height: 1.1;
 }
 #restaurant-img {
-	width: 90%;
+  width: 100%;
+  border-radius: 30px;
 }
 #restaurant-address {
   font-size: 12pt;
@@ -243,22 +257,23 @@ nav h1 a {
   padding: 2px 0;
   text-align: center;
   text-transform: uppercase;
-	width: 90%;
+	width: 100%;
 }
 #restaurant-container, #reviews-container {
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
-  padding: 40px 40px 30px;
+  padding: 10px 10px 20px;
   width: 100%;
 }
 #reviews-container {
-  padding: 30px 40px 80px;
+  padding: 20px 10px 10px;
+  margin-bottom: 30px;
 }
 #reviews-container h2 {
   color: #f58500;
-  font-size: 24pt;
+  font-size: 16pt;
   font-weight: 300;
-  letter-spacing: -1px;
+  letter-spacing: 1px;
   padding-bottom: 1pt;
 }
 #reviews-list {
@@ -270,7 +285,7 @@ nav h1 a {
     border: 2px solid #f3f3f3;
   display: block;
   list-style-type: none;
-  margin: 0 0 30px;
+  margin: 0 0 45px;
   overflow: hidden;
   /* padding: 20px; */
   position: relative;
@@ -285,23 +300,71 @@ nav h1 a {
 }
 
 .review-header, .review-rating, .review-body {
-  padding: 20px 40px;
+  padding: 10px 20px;
 }
 
 .review-header {
-  background-color: #333;
+  background-color: #5d5d5d;
   color: #fff;
+  font-size: 13pt;
 }
 
 .review-rating {
   background-color: orange;
   color: #fff;
-  margin: 20px 40px 0;
+  margin: 20px 20px 0;
   width: 100px;
   text-transform: uppercase;
   border-radius: 5px;
+  letter-spacing: 1px;
 }
 
 .review-body {
   color: #888;
+  font-size: 12pt;
+}
+
+/* ====================== Media Queries ====================== */
+@media screen and (min-width: 450px) {
+  .filter-options {
+    height: 80px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .inside #map-container {
+    width: 50%!important;
+    order: 1;
+  }
+
+  #restaurant-container {
+    width: calc(50% - 20px)!important;
+    padding: 140px 10px 30px;
+    order: 0;
+  }
+
+  #reviews-container {
+    order: 2;
+    padding: 30px 40px 40px;
+    margin-bottom: 0px;
+  }
+
+  .filter-options {
+    order: 2;
+    margin: -61px -10px 0;
+    height: 135px;
+  }
+
+  #restaurants-list {
+    padding: 30px 10px 60px;
+    /* width: calc(50% - 20px)!important; */
+    order: 4;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  #maincontent {
+    width: 1024px;
+    margin: auto;
+  }
 }

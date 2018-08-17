@@ -16,12 +16,19 @@ class DBHelper {
    * Fetch all restaurants.
    */
   static fetchRestaurants(callback) {
+    const data = DBHelper.getFromStorage()
+    if (data !== null) {
+      callback(null, data);
+      return
+    }
+
     let xhr = new XMLHttpRequest();
     xhr.open('GET', DBHelper.DATABASE_URL);
     xhr.onload = () => {
       if (xhr.status === 200) { // Got a success response from server!
         const json = JSON.parse(xhr.responseText);
         const restaurants = json.restaurants;
+        DBHelper.saveToLocalStorage(restaurants)
         callback(null, restaurants);
       } else { // Oops!. Got an error from server.
         const error = (`Request failed. Returned status of ${xhr.status}`);
@@ -177,5 +184,12 @@ class DBHelper {
     return marker;
   } */
 
+  static saveToLocalStorage(restaurants) {
+    localStorage.setItem("restaurants", JSON.stringify(restaurants))
+  }
+
+  static getFromStorage() {
+    return JSON.parse(localStorage.getItem("restaurants"))
+  }
 }
 
