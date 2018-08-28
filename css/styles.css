@@ -349,12 +349,6 @@ nav h1 a {
 }
 
 /* ====================== Media Queries ====================== */
-@media screen and (min-width: 450px) {
-  .filter-options {
-    /* height: 80px; */
-  }
-}
-
 @media screen and (min-width: 769px) {
   .inside #map-container {
     width: 50%!important;
@@ -379,7 +373,6 @@ nav h1 a {
 
   .inside #restaurants-list {
     padding: 30px 10px 60px;
-    /* width: calc(50% - 20px)!important; */
     order: 4;
   }
 
@@ -409,35 +402,6 @@ nav h1 a {
     grid-template-columns: 1fr 1fr;
   }
 }
-
-/* @media screen and (min-width: 769px) {
-  .inside #map-container {
-    width: 50%!important;
-    order: 1;
-  }
-
-  #restaurant-container {
-    width: calc(50% - 20px)!important;
-    padding: 140px 10px 30px;
-    order: 0;
-  }
-
-  #reviews-container {
-    order: 2;
-    padding: 30px 40px 40px;
-    margin-bottom: 0px;
-  }
-
-  .filter-options {
-    order: 2;
-    margin: -61px -10px 0;
-  }
-
-  #restaurants-list {
-    padding: 30px 10px 60px;
-    order: 4;
-  }
-} */
 
 @media screen and (min-width: 1024px) {
   #maincontent {
