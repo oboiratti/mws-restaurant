@@ -113,11 +113,14 @@ nav h1 a {
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
   width: 100%;
-  height: 135px;
+  height: 200px;
   background-color: #3397DB;
   align-items: center;
   padding-top: 10px;
   margin-top: 10px;
+}
+.index .filter-options {
+  display: grid;
 }
 .filter-options h2 {
   color: white;
@@ -138,7 +141,27 @@ nav h1 a {
   width: 200px;
 }
 
+.filter-options label {
+  color: white;
+  padding: 0 10px;
+  margin-top: 10px;
+}
+
+.control-group {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr; */
+}
+
 /* ====================== Restaurant Listing ====================== */
+.index, {
+  display: grid;
+}
+
+.index #maincontent {
+  display: grid;
+  grid-template-rows: 800px 1fr;
+}
+
 #restaurants-list {
   background-color: #f3f3f3;
   list-style: outside none none;
@@ -203,7 +226,7 @@ nav h1 a {
   width: 100%;
   z-index: 9000;
 }
-.inside #map-container {
+.inside #map-container, .index #map-container {
   background: blue none repeat scroll 0 0;
   height: 800px;
   /* position: fixed;
@@ -211,13 +234,13 @@ nav h1 a {
   top: 80px; */
   width: 100%;
 }
-.index-map {
+.inside .index-map {
   margin-top: 80px;
 }
 .restaurant-map {
   margin-top: 140px;
 }
-.inside #map {
+.inside #map, .index #map {
   background-color: #ccc;
   height: 100%;
   width: 100%;
@@ -265,6 +288,9 @@ nav h1 a {
   padding: 10px 10px 20px;
   width: 100%;
 }
+.index #restaurant-container {
+  padding: 10px 0 20px;
+}
 #reviews-container {
   padding: 20px 10px 10px;
   margin-bottom: 30px;
@@ -282,15 +308,13 @@ nav h1 a {
 }
 #reviews-list li {
   background-color: #fff;
-    border: 2px solid #f3f3f3;
+  border: 2px solid #f3f3f3;
   display: block;
   list-style-type: none;
-  margin: 0 0 45px;
+  margin: 0 10px 45px;
   overflow: hidden;
-  /* padding: 20px; */
   position: relative;
-  /* width: 85%; */
-  border-radius: 30px 30px 0 0;
+  border-radius: 20px;
 }
 #reviews-list li p {
   margin: 0 0 10px;
@@ -327,11 +351,66 @@ nav h1 a {
 /* ====================== Media Queries ====================== */
 @media screen and (min-width: 450px) {
   .filter-options {
-    height: 80px;
+    /* height: 80px; */
   }
 }
 
 @media screen and (min-width: 769px) {
+  .inside #map-container {
+    width: 50%!important;
+    order: 1;
+  }
+
+  .inside #restaurant-container {
+    width: calc(50% - 20px)!important;
+    padding: 140px 10px 30px;
+    order: 0;
+  }
+
+  #reviews-container {
+    order: 2;
+    padding: 10px;
+  }
+
+  #reviews-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .inside #restaurants-list {
+    padding: 30px 10px 60px;
+    /* width: calc(50% - 20px)!important; */
+    order: 4;
+  }
+
+  .index #maincontent {
+    display: grid;
+  }
+
+  .index #restaurant-container {
+    padding: 0px;
+  }
+
+  .index #restaurants-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .filter-options {
+    height: 90px;
+  }
+
+  .filter-options label {
+    padding-top: 10px;
+  }
+
+  .control-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* @media screen and (min-width: 769px) {
   .inside #map-container {
     width: 50%!important;
     order: 1;
@@ -352,19 +431,36 @@ nav h1 a {
   .filter-options {
     order: 2;
     margin: -61px -10px 0;
-    height: 135px;
   }
 
   #restaurants-list {
     padding: 30px 10px 60px;
-    /* width: calc(50% - 20px)!important; */
     order: 4;
   }
-}
+} */
 
 @media screen and (min-width: 1024px) {
   #maincontent {
     width: 1024px;
     margin: auto;
   }
+
+  .index #restaurants-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #f18200;
+  color: white;
+  padding: 8px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
 }

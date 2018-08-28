@@ -43,16 +43,6 @@ self.addEventListener('fetch', (event) => {
             return
         }
 
-        // if (requestUrl.pathname === '/restaurant') {
-        //     event.respondWith(caches.match('restaurant.html', {ignoreSearch: true}))
-        //     return
-        // }
-
-        // if (requestUrl.pathname.startsWith('/img/')) {
-        //     event.respondWith(servePhoto(event.request));
-        //     return;
-        // }
-
         event.respondWith(
             caches.match(event.request, {ignoreSearch: true}).then((response) => {
                 return response || fetch(event.request)
@@ -60,18 +50,3 @@ self.addEventListener('fetch', (event) => {
         )
     }
 })
-
-// function servePhoto(request) {
-//     var storageUrl = request.url.replace(/-\d+px\.jpg$/, '');
-
-//     return caches.open(contentImgsCache).then(function (cache) {
-//         return cache.match(storageUrl).then(function (response) {
-//             if (response) return response;
-
-//             return fetch(request).then(function (networkResponse) {
-//                 cache.put(storageUrl, networkResponse.clone());
-//                 return networkResponse;
-//             });
-//         });
-//     });
-// }
